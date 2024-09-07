@@ -1,0 +1,627 @@
+:root{
+    --clr-primary-8:#add7e5;
+    --clr-primary-6:#ff3118;
+    --clr-primary-2:#012a00;
+    --clr-primary-1:#000000;
+
+    --clr-accent-14:#fdfdfd;
+    --clr-accent-2:#595858;
+
+
+    -fw-heading-bold:800;
+
+    --ff-navigation: 'Roboto', 'Poppins', system-ui;
+    --ff-heading: 'Poppins', 'Roboto', system-ui;
+    --ff--main: 'Poppins', 'Roboto', sans-serif
+}
+::-webkit-scrollbar{
+    width:0.4rem;
+}
+::-webkit-scrollbar-track{
+    background-color: hsl(119, 100%, 28%);
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: var(--clr-primary-1);
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: var(--clr-primary-2);
+}
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    scroll-margin-top: 30px;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: var(--ff--main);
+    font-size: 1.2rem;
+    background:linear-gradient(
+        to top,
+        var(--clr-primary-1) 95px,
+        var(--clr-primary-2)
+    );
+    color:var(--clr-accent-14)
+}
+h1{
+    font-weight: var(--fw-heading-bold);
+}
+ul,
+ol{
+    list-style: none;
+}
+a{
+   text-decoration: none;
+   color:var(--clr-accent-14) ;
+}
+.main-header{
+    .nav-bar{
+        width:fit-content;
+        height:50px;
+        margin:10px 10px 90px 10px 
+    }
+    .logo{
+        width:48px;
+        height: 48px;
+    }
+}
+.container{
+    margin-inline:100px
+}
+.header-img{
+    height:460px;
+    width:100% ;
+    position: relative;
+    z-index:-1;
+    transform-origin: top bottom;
+    animation: header-img-animation linear ;
+    animation-timeline:view();
+    animation-range:exit;
+    object-fit:cover;
+}
+.welcome-1{
+    position: absolute;
+    z-index:1;
+    width:100%;
+    top:0px;
+}
+.welcome-2{
+    position: absolute;
+    z-index:1;
+    top:100px;
+    left:auto
+
+}
+.welcome-1,
+.welcome-2{
+    animation:fade-out linear;
+    animation-timeline: view();
+    animation-range:exit -5px;
+}
+@keyframes fade-out{
+    to{
+        opacity: 0;
+    }
+}
+@keyframes header-img-animation{
+    45%{
+        opacity: 1;
+    }
+    85%, 100%{
+        opacity: 0;
+        scale:3
+    }
+}
+
+.cover{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    
+    .header-photo{
+        display: flex;
+        width:340px;
+    }
+    .album-cover{
+        height:100%;
+        width:300px;
+        position: relative;
+        left:15px;
+        bottom:16px
+    }
+    .album-release-date{
+        display: flex;
+        transform: rotate(-90deg);
+        position: relative;
+        top:150px;
+        right:142px
+    }
+    .dash{
+        height:2px;
+        width:10px;
+        background-color: var(--clr-accent-14);
+        margin:7px 5px
+    }
+    figcaption{
+        font-size: 0.8rem;
+        font-style: italic;
+    }
+    .album-release-name{
+        color:hsl(119, 100%, 28%);
+    }
+    .names{
+        margin-block:30px;
+        height:280px
+
+    }
+    h1,
+    h2{
+        margin-bottom: 5px;
+    }
+    h1{
+        font-family: var(--ff-navigation);
+        font-size: 3rem;
+        color: hsl(119, 100%, 28%);
+        font-weight: 700;
+    }
+    h2{
+        font-weight: 600;
+    }
+    .user-photo{
+        width:70px;
+        height: 70px;
+        border-radius:50%;
+        margin-block:10px;
+        margin-right: 15px;
+    }
+    .btns{
+        display: flex;
+        gap:10px;
+        margin-top:10px;
+    }
+    .btn{
+        font-weight:600;
+        padding:10px;
+        font-size: 1rem;
+    }
+    .listen{
+        background-color: var(--clr-primary-2);
+        border:1px solid  var(--clr-primary-2);
+        width:max-content;
+        position:relative;
+        opacity:0.8;
+    }    
+    .listen::before{
+        content: '';
+        width:0;
+        position:absolute;
+        top:36px;
+        right:1px;
+        transition: 300ms
+    }
+    .listen:hover::before{
+        content: '';
+        width:100%;
+        border:1px solid hsl(119, 100%, 28%);
+        height:1px;
+    }
+    .share{
+        background-color: transparent;
+        border:1px solid var(--clr-accent-14);
+        width:max-content;
+        position:relative;
+        opacity:0.8;
+    }
+    .share::before{
+        content: '';
+        width:0;
+        position:absolute;
+        top:36px;
+        right:1px;
+        transition: 300ms
+    }
+    .share:hover::before{
+        content: '';
+        width:100%;
+        border:1px solid #ffff;
+        height:1px;
+    }
+    .listen:active,
+    .share:active{
+        opacity: 0.2;
+    }
+}
+.second-section{
+    margin-bottom: 60px;
+    h1{
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .streams-apps{
+        border:1px solid var(--clr-accent-14);
+        width:fit-content;
+        height:50px
+    }
+    .music-apps{
+        display: flex;
+    }
+    .app{
+        margin:15px;
+    }
+    .app.link{
+        font-size: 1.4rem;
+    }
+    .dash{
+        border:1px solid var(--clr-accent-14);
+        height:48px;
+    }
+    .app.link:hover{
+        opacity:0.6;
+    }
+    .app.link:active{
+        opacity:0.2;
+    }
+}
+.third-section{
+    margin-bottom:50px;
+    h1{
+        text-transform: uppercase;
+        width:fit-content;
+        font-size:3rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+    .track-list{
+        margin-inline:15px;
+    }
+    .song{ 
+        width:100%;
+        padding: 10px;
+    }
+    .song:hover{
+        border-top:1px solid var(--clr-accent-14);
+        border-bottom:1px solid var(--clr-accent-14);
+        transition: ease 300ms;
+        opacity:0.8;
+    }
+    .list{
+        display: flex;
+        gap:10px;
+        opacity:0.8;
+        font-weight: 600;
+    }
+    .song-name p{
+        line-height: 25px;
+    }
+    audio{/*I should find a way to make bgc on the audio */
+        margin-bottom:10px;
+        width:calc(100% - 5%);
+        outline: none;
+        background-color: #ffff;
+        border: none;
+    }
+}
+.fourth-section{
+    margin-bottom:100px;
+
+    h1{
+        text-transform: uppercase;
+        width:fit-content;
+        font-size:3rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+    .albums-cover{
+        display: flex;
+        flex-wrap: wrap;
+        gap:20px;
+    }
+    .cover-art{
+        width:200px;
+        height:200px;
+        margin-bottom:10px;
+    }
+    .art:hover{
+        transform:translateY(-15px);
+        transition:all 500ms;
+    }
+    .art2:hover{
+        transform:translateY(-15px);
+        transition: all 500ms;
+    }
+    .album-name{
+        font-size: 1.7rem;
+        font-weight: 700;
+    }
+    .name{
+        color:var(--clr-accent-2);
+        font-size: 1rem;
+    }
+
+}
+.footer-bar{
+    margin-bottom: 20px;
+    .details-bar{
+        border-top:1px solid var(--clr-accent-2);
+        border-bottom:1px solid var(--clr-accent-2);
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+    }
+    .details, .newsletter{
+        margin-block: 40px;
+    }
+    li{
+        margin-bottom: 10px;
+    }
+    .about-links{
+        font-weight: 700;
+    }
+    .about-links:hover{
+        text-decoration: underline;
+        opacity: 0.8;
+    }
+    .about-links:active{
+        opacity: 0.2;
+    }
+    p{
+        color:var(--clr-accent-2)
+    }
+    .news{
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .description{
+        margin-block:15px;
+        font-size: 1rem;
+        font-style: italic;
+        line-height: 25px;
+    }
+    .email-input{
+        background-color: var(--clr-primary-1);
+        height:30px;
+        border-bottom:1px solid var(--clr-accent-2);
+        position: relative;
+    }
+    input{
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        outline: none;
+        border:none;
+        color:var(--clr-accent-14);
+        font-size: 1rem;
+    }
+    .bx-right-arrow-alt{
+        color: var(--clr-accent-14);
+        position: absolute;
+        width:20px;
+        right:5px;
+        top:5px;
+        z-index:3;
+    }
+    .email-btn{
+        margin-top: 10px;
+        width:100px;
+        height:25px;
+        background-color: var(--clr-accent-2);
+        color:var(--clr-accent-14);
+        outline: none;
+        border: none;
+    }
+    input:user-invalid{
+        border-bottom:1px solid var(--clr-accent-14);
+        transition: 700ms;
+    }
+    input:user-valid{
+        border-bottom:1px solid hsl(119, 100%, 28%);
+        transition: 700ms;
+    }
+    .email-btn:hover{
+        box-shadow: 2px 2px 2px var(--clr-accent-2);
+        cursor: pointer;
+    }
+    .email-btn:active{
+        opacity: 0.6;
+    }
+    .contacts{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .copyrights{
+        font-size: 1rem;
+        font-style: italic;
+    }
+    .sm{
+        display: flex;
+        flex-wrap: wrap;
+        gap:10px
+    }
+    .sm-links:hover{
+        opacity: 0.8;
+    }
+    .sm-links:active{
+        opacity: 0.5;
+    }
+}
+@media (max-width:781px){
+    .welcome-1,
+    .welcome-2{
+        animation:none;
+
+    }
+    .header-img{
+        animation: none ;
+        height:350px
+    }
+    .welcome-2{
+        display: flex;
+    }
+    .cover{
+        display: flex;
+        justify-content: space-between;
+
+        .header-photo{
+            width:fit-content;
+        }
+        .album-cover{
+            width:200px;
+            height:auto;
+            margin-top: 20px;
+            left:0;
+        }
+        .album-release-date{
+            transform: rotate(0);
+            position: static;
+            top:50px;
+            right:0;
+        }
+        h1{
+            font-size: 2rem;
+        }
+        h2{
+            font-size: 1rem;
+        }
+        .names{
+            margin-block:10px;
+        }
+        .user-photo{
+            width:50px;
+            height: 50px;
+        }
+        .btns{
+            gap:10px;
+            margin-top:0;
+        }
+    }
+
+    .header-photo{
+        width:fit-content;
+    }
+    .second-section{
+        margin-bottom: 60px;
+        h1{
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .streams-apps{
+            height:40px
+        }
+        .dash{
+            height:38px;
+        }
+        .app{
+            margin:10px;
+        }
+        .app.link{
+            font-size: 1.2rem;
+        }
+    }
+        .third-section{
+            margin-bottom:25px;
+            h1{
+                font-size:2rem;
+                margin-bottom: 10px;
+            }
+            .list{
+                font-weight: normal;
+                font-size: 1rem;
+            }
+            .song-name p{
+                line-height: 15px;
+            }
+            audio{/*I should find a way to make bgc on the audio */
+                height:30px;
+                width:100%
+            }
+        }
+        .fourth-section{
+            margin-bottom: 30px;
+            h1{
+                font-size:2rem;
+                margin-bottom: 30px;
+            }
+            .cover-art{
+                width:100px;
+                height:100px;
+            }
+            .album-name{
+                font-size: 1.3rem;
+            }
+            .name{
+                font-size: 0.9rem;
+            }
+        }
+        .footer-bar{
+            font-size: .9rem;   
+
+            .details, .newsletter{
+                margin-block: 10px;
+            }
+            .copyrights{
+                font-size: 0.8rem;
+            }
+        }
+}
+@media (max-width:633px){
+    .cover{
+        .album-cover{
+            width:150px;
+        }
+        h1{
+            font-size: 1.2rem;
+        }
+        h2{
+            font-size: 0.9rem;
+        }
+    }
+    .second-section{
+        margin-top: 160px;
+        h1{
+            font-size: 1rem;
+        }
+    }
+    .third-section{
+        h1{
+            font-size:1rem;
+        }
+    }
+    .fourth-section{
+        margin-bottom: 20px;
+        h1{
+            font-size:1rem;
+            margin-bottom: 20px;
+        }
+        .album-name{
+            font-size: 1.1rem;
+        }
+        .name{
+            font-size: 0.8rem;
+        }
+    }
+}
+@media (max-width:383px){
+    .cover{
+        .btn{
+            font-weight:500;
+            padding:5px;
+            font-size: 0.9rem;
+        }
+        .listen::before{
+            top:26px;
+            right:1px;
+        }
+        .share::before{
+            top:26px;
+        }
+    }
+    
+}
